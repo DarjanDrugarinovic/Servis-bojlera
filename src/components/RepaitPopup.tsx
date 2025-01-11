@@ -45,16 +45,6 @@ const Popup = styled.div`
   position: relative;
 `;
 
-const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-`;
-
 const Content = styled.div`
   font-size: 16px;
   line-height: 1.5;

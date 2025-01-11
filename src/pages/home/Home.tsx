@@ -298,10 +298,11 @@ const ServicesP1 = styled.p`
 `;
 
 const OptionItem = styled.li`
-  font-size: 18px;
+  font-size: 24px;
   color: #345f94;
   cursor: pointer;
   padding: 10px 0;
+  text-align: center;
 
   &:hover {
     text-decoration: underline;
