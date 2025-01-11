@@ -1,26 +1,40 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import { routes } from "router/routes";
+import { NavLink as RRNavLink } from "react-router-dom";
 
-const { about, home } = routes;
+const { home } = routes;
 
-const Navbar = () => {
-  const navigate = useNavigate();
-
-  const navigateHome = useCallback(() => {
-    navigate(home);
-  }, [navigate]);
-
-  const navigateAbout = useCallback(() => {
-    navigate(about);
-  }, [navigate]);
-
+export const Navbar = () => {
   return (
-    <div>
-      <button onClick={navigateHome}>Home</button>
-      <button onClick={navigateAbout}>About</button>
-    </div>
+    <StyledNav>
+      <NavbarDiv>
+        <NavLink to={home}>SERVIS BOJLERA</NavLink>
+      </NavbarDiv>
+    </StyledNav>
   );
 };
 
 export default Navbar;
+
+export const NavLink = styled(RRNavLink)`
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+`;
+
+const NavbarDiv = styled.div`
+  padding: 16px 8px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65) 0,
+    rgba(0, 0, 0, 0) 100%
+  );
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 700;
+`;
+
+const StyledNav = styled.div`
+  background-color: ${({ theme }) => theme.colors.main};
+`;
