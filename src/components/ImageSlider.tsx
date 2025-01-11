@@ -30,18 +30,22 @@ const ImageSlider = () => {
   }, []);
 
   return (
-    <div style={{ position: 'relative', maxWidth: '600px', margin: '0 auto' }}>
-      <img
+    <MainDiv>
+      <Image
         src={images[currentIndex]}
         alt={`Slide ${currentIndex + 1}`}
-        style={{ width: '100%', display: 'block' }}
       />
-    </div>
+    </MainDiv>
   );
 };
 
 const MainDiv= styled.div`
+position: relative;
+max-width: 600px; 
+margin: 0 auto
+`
 
-position: 'relative', maxWidth: '600px', margin: '0 auto'
+const Image = styled.img`
+width: 100%;
 `
 export default ImageSlider;

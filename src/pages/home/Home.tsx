@@ -1,3 +1,4 @@
+import BoilerList from "components/BoilerList";
 import ImageSlider from "components/ImageSlider";
 import { Layout } from "components/Layout";
 import styled from "styled-components";
@@ -17,6 +18,7 @@ const Home = () => {
         <PTel>00-24</PTel>
         <Hr />
       </MainDiv>
+      <BoilerList/>
       <ImageSlider/>
     </Layout>
   );
