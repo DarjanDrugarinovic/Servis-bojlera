@@ -1,53 +1,53 @@
-import styled from "styled-components";
-import CopyrightIcon from "@mui/icons-material/Copyright";
+import styled, { keyframes } from "styled-components";
 
-interface FooterProps {
-  className?: string;
-}
-
-export const Footer: React.FC<FooterProps> = ({ className }) => {
+export const Footer = () => {
   return (
-    <FooterDiv className={className}>
-      <ContactDiv>
-        <HeaderDiv>Kontakt</HeaderDiv>
-      </ContactDiv>
-
-      <CopyRightDiv>
-        <CopyrightIcon /> 2024
-      </CopyRightDiv>
-    </FooterDiv>
+    <FooterPlaceholderDiv>
+      <FooterDiv>
+        <a href="tel:+381612005825">
+          <BreathingButton>POZOVI ODMAH 📞</BreathingButton>
+        </a>
+      </FooterDiv>
+    </FooterPlaceholderDiv>
   );
 };
 
 export default Footer;
 
-const ContactDiv = styled.div`
+const FooterPlaceholderDiv = styled.footer`
+  height: 80px;
   display: flex;
-  flex-direction: column;
-  padding: 10px;
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 0px 1px 0px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 `;
 
 const FooterDiv = styled.footer`
-  box-shadow: rgba(0, 0, 0, 0.75) 3px 1px 3px 0px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
+  position: fixed;
+  bottom: 10px;
+`;
+const breatheAnimation = keyframes`
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 `;
 
-const CopyRightDiv = styled.div`
-  display: flex;
-  align-items: center;
-  border-top: 1px solid black;
-  width: 100%;
-  justify-content: center;
-  padding: 5px;
+const BreathingButton = styled.button`
+  background-color: #da5b00;
   color: white;
-`;
-
-const HeaderDiv = styled.div`
-  color: black;
+  font-size: 18px;
   font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  cursor: pointer;
+  outline: none;
+  animation: ${breatheAnimation} 2s infinite;
+
+  &:hover {
+    background-color: #c45301;
+  }
 `;

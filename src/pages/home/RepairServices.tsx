@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import BoilerPopup from "./BoilerPopup";
+import BoilerPopup from "../../components/BoilerPopup";
 import { boilers, Boiler } from "boilersData";
 
 const BoilerList = () => {
@@ -16,8 +16,6 @@ const BoilerList = () => {
 
   return (
     <MainDiv>
-      <H1>MARKE BOJLERA</H1>
-      <Hr />
       <BoilerGrid>
         {boilers.map((boiler) => (
           <BoilerItem key={boiler.id} onClick={() => handleOpenPopup(boiler)}>

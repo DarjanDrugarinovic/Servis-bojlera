@@ -1,4 +1,26 @@
-export const options = [
+import { assets } from "assets/assets";
+
+const { services: serviceImages } = assets;
+
+export const mainServices = [
+  {
+    id: "1",
+    name: "DOSTAVA BOJLERA",
+    src: serviceImages.transport,
+  },
+  {
+    id: "2",
+    name: "MONTAŽA BOJLERA",
+    src: serviceImages.instalation,
+  },
+  {
+    id: "3",
+    name: "ODRŽAVANJE I POPRAVKA",
+    src: serviceImages.repair,
+  },
+];
+
+export const data = [
   {
     title: "Čišćenje kamenca",
     description: `Čišćenje kamenca je ključan deo održavanja bojlera. Redovno čišćenje 
