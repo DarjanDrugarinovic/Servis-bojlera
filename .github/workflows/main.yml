@@ -30,4 +30,4 @@ jobs:
           npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.SERVIS_BOJLERA_GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ DarjanDrugarinovic/Servis-bojlera }}
+          GITHUB_REPOSITORY: ${{  secrets.SERVIS_BOJLERA_REPOSITORY }}
