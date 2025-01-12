@@ -42,22 +42,6 @@ const MainDiv = styled.div`
   justify-content: center;
 `;
 
-const H1 = styled.p`
-  font-size: 36px;
-  color: #345f94;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-weight: 500;
-`;
-
-const Hr = styled.hr`
-  width: 40%;
-  margin-bottom: 55px;
-  margin-top: 20px;
-  box-sizing: content-box;
-  border: 2px solid #345f94;
-`;
-
 const BoilerGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
