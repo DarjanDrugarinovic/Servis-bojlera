@@ -1,48 +1,45 @@
 import styled from "styled-components";
 import { data, mainServices } from "./data";
-import { ServiceDialog } from "./ServiceDialog";
 import { SlideShow } from "components/SlideShow";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { Section } from "components/Section";
+import { useNavigate } from "react-router-dom";
+import { routes } from "router/routes";
+
+const { service } = routes;
 
 export const Services = () => {
-  const [open, setOpen] = useState(false);
-  const [dialog, setDialog] = useState({ title: "", description: "" });
+  const navigate = useNavigate();
 
-  const openDialog = useCallback((title: string, description: string) => {
-    setOpen(true);
-    setDialog({ title, description });
-  }, []);
-
-  const closeDialog = useCallback(() => {
-    setOpen(false);
-  }, []);
+  const onServiceClick = useCallback(
+    (title: string, description: string) => {
+      navigate(service, {
+        state: {
+          title,
+          description,
+        },
+      });
+    },
+    [navigate]
+  );
 
   return (
-    <>
-      <ServicesSection>
-        <Section name="USLUGE SERVISA" />
-        <SlideShowDiv>
-          <SlideShow slides={mainServices} />
-        </SlideShowDiv>
-        <ServicesDiv>
-          {data.map(({ title, description }) => (
-            <ServiceDiv
-              key={title}
-              onClick={() => openDialog(title, description)}
-            >
-              <ServicesP>{title}</ServicesP>
-            </ServiceDiv>
-          ))}
-        </ServicesDiv>
-      </ServicesSection>
-      <ServiceDialog
-        title={dialog.title}
-        description={dialog.description}
-        open={open}
-        handleClose={closeDialog}
-      />
-    </>
+    <ServicesSection>
+      <Section name="USLUGE SERVISA" />
+      <SlideShowDiv>
+        <SlideShow slides={mainServices} />
+      </SlideShowDiv>
+      <ServicesDiv>
+        {data.map(({ title, description }) => (
+          <ServiceDiv
+            key={title}
+            onClick={() => onServiceClick(title, description)}
+          >
+            <ServicesP>{title}</ServicesP>
+          </ServiceDiv>
+        ))}
+      </ServicesDiv>
+    </ServicesSection>
   );
 };
 

@@ -11,7 +11,7 @@ type Props = {
   slides: Slide[];
 };
 
-const slideInterval = 3000;
+const slideInterval = 1500;
 
 export const SlideShow: FC<Props> = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

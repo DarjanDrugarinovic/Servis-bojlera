@@ -9,12 +9,14 @@ type LayoutProps = {
   children: ReactNode;
   direction?: Direction;
   className?: string;
+  disableFooter?: boolean;
 };
 
 export const Layout: FC<LayoutProps> = ({
   children,
   direction = "vertical",
   className,
+  disableFooter = false,
 }) => {
   return (
     <LayoutDiv>
@@ -22,7 +24,7 @@ export const Layout: FC<LayoutProps> = ({
       <ContentDiv $direction={direction} className={className}>
         {children}
       </ContentDiv>
-      <Footer />
+      {!disableFooter && <Footer />}
     </LayoutDiv>
   );
 };

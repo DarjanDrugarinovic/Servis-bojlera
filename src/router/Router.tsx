@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import { routes } from "./routes";
 import Home from "pages/home/Home";
-import About from "pages/about/About";
+import About from "pages/service/Service";
 
-const { about } = routes;
+const { service: about } = routes;
 
 export default function Router() {
   return (

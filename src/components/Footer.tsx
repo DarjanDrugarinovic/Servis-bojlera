@@ -42,10 +42,11 @@ const BreathingButton = styled.button`
   font-weight: bold;
   border: none;
   border-radius: 8px;
-  padding: 15px 30px;
+  padding: 10px 20px;
   cursor: pointer;
   outline: none;
   animation: ${breatheAnimation} 2s infinite;
+  border: 1px solid white;
 
   &:hover {
     background-color: #c45301;
