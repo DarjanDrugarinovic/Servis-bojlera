@@ -26,5 +26,5 @@ export default defineConfig({
   server: {
     open: true,
   },
-  base: "/vite-react-deploy/",
+  base: "/Servis-bojlera/",
 });
