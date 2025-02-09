@@ -36,7 +36,7 @@ const breatheAnimation = keyframes`
 `;
 
 const BreathingButton = styled.button`
-  background-color: #da5b00;
+  background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -47,8 +47,4 @@ const BreathingButton = styled.button`
   outline: none;
   animation: ${breatheAnimation} 2s infinite;
   border: 1px solid white;
-
-  &:hover {
-    background-color: #c45301;
-  }
 `;

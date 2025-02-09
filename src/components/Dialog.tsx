@@ -1,7 +1,7 @@
 import { FC, forwardRef, ReactElement, Ref } from "react";
 import { TransitionProps } from "@mui/material/transitions";
 import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
+import MUIDialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
@@ -34,14 +34,18 @@ type Props = {
   handleClose: () => void;
 };
 
-export const ServiceDialog: FC<Props> = ({
+export const Dialog: FC<Props> = ({
   title,
   description,
   open,
   handleClose,
 }) => {
   return (
-    <Dialog onClose={handleClose} open={open} TransitionComponent={Transition}>
+    <MUIDialog
+      onClose={handleClose}
+      open={open}
+      TransitionComponent={Transition}
+    >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent dividers>
         <Typography gutterBottom>{description}</Typography>
@@ -49,6 +53,6 @@ export const ServiceDialog: FC<Props> = ({
       <DialogActions>
         <Button onClick={handleClose}>Ok</Button>
       </DialogActions>
-    </Dialog>
+    </MUIDialog>
   );
 };

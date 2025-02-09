@@ -1,4 +1,5 @@
 import { Link } from "components/Link";
+import { P1, P3 } from "components/Paragraphs";
 import styled from "styled-components";
 
 export const Header = () => {
@@ -6,23 +7,21 @@ export const Header = () => {
     <HeaderDiv>
       <H1>BEOGRAD</H1>
       <Hr />
+      <Link href="tel:0601881020">
+        <P1 $color="white">060/188-10-20</P1>
+      </Link>
       <br />
-      <BigParagraph>
-        <Link href="tel:0601881020">060/188-10-20</Link>
-      </BigParagraph>
+      <P3 $color="white">PROFESIONALNO, POVOLJNO I PEDANTNO</P3>
       <br />
-      <SmallParagraph>PROFESIONALNO, POVOLJNO I PEDANTNO</SmallParagraph>
+      <P1 $color="white">HITNE INTERVENCIJE</P1>
       <br />
-      <SmallParagraph>HITNE INTERVENCIJE</SmallParagraph>
-      <br />
-      <BigParagraph>00-24</BigParagraph>
-      <Hr />
+      <P1 $color="white">00-24</P1>
     </HeaderDiv>
   );
 };
 
 const HeaderDiv = styled.div`
-  background-color: ${({ theme }) => theme.colors.main};
+  background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   text-decoration: none;
   text-align: center;
@@ -41,14 +40,4 @@ const Hr = styled.hr`
   border-width: 3px;
   margin: 20px 0;
   border: 2px solid #fff;
-`;
-
-const BigParagraph = styled.p`
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 1.5;
-`;
-
-const SmallParagraph = styled.p`
-  font-size: 24px;
 `;

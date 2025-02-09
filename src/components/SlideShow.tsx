@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
+import { P3 } from "./Paragraphs";
 
 export type Slide = {
   id: string;
@@ -36,20 +37,16 @@ export const SlideShow: FC<Props> = ({ slides }) => {
           />
         ))}
       </Wrapper>
-      <NameH2>{slides[currentIndex]?.name}</NameH2>
+      <P3>{slides[currentIndex]?.name}</P3>
     </SlideShowDiv>
   );
 };
 
 const SlideShowDiv = styled.div`
-  color: #345f94;
+  color: ${({ theme }) => theme.colors.primary};
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const NameH2 = styled.h2`
-  text-align: center;
 `;
 
 const Wrapper = styled.div`

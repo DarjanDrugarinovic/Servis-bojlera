@@ -34,6 +34,7 @@ const ContentDiv = styled.div<{ $direction: Direction }>`
   display: flex;
   flex-direction: ${({ $direction }) =>
     $direction === "vertical" ? "column" : "row"};
+  gap: 20px;
 `;
 
 const LayoutDiv = styled.div`

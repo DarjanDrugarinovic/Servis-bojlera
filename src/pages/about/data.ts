@@ -1,10 +1,11 @@
+export const aboutData = {
+  id: 1,
+  description:
+    "Vodoinstalater postoji i radi već 19 godina. Svoj posao obavljamo profesionalno i pedantno sa željom da svaki naš klijent bude zadovoljan.",
+  text: "NAŠA PRIČA",
+};
+
 export const data = [
-  {
-    id: 1,
-    description:
-      "Vodoinstalater postoji i radi već 19 godina. Svoj posao obavljamo profesionalno i pedantno sa željom da svaki naš klijent bude zadovoljan.",
-    text: "NAŠA PRIČA",
-  },
   {
     id: 2,
     description:

@@ -27,7 +27,7 @@ const TextDiv = styled.div`
 `;
 
 const ProblemSolvingSection = styled.section`
-  background-color: ${({ theme }) => theme.colors.main};
+  background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   text-decoration: none;
   padding: 24px 16px 32px 16px;
