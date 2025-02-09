@@ -59,6 +59,9 @@ const LeftDiv = styled.div``;
 const ServicesDiv = styled.div`
   border: 2px solid ${({ theme }) => theme.colors.primary};
   padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `;
 
 const ServiceDiv = styled.div`
@@ -67,6 +70,7 @@ const ServiceDiv = styled.div`
   flex-wrap: wrap;
   border: 2px solid ${({ theme }) => theme.colors.primary};
   gap: 30px;
+  padding: 5px;
 `;
 
 const WarrantyDiv = styled.div`
