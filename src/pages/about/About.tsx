@@ -20,9 +20,9 @@ const About = () => {
         {data.map(({ id, text, description }) => (
           <DescriptionDiv key={id}>
             <DescriptionHeaderDiv>
-              <P3>{text}</P3>
+              <P3 $color="white">{text}</P3>
             </DescriptionHeaderDiv>
-            <P4>{description}</P4>
+            <P4 $color="white">{description}</P4>
           </DescriptionDiv>
         ))}
       </MovingContent>
@@ -52,11 +52,10 @@ const DescriptionHeaderDiv = styled.div`
 `;
 
 const DescriptionDiv = styled.div`
-  background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.primary};
   gap: 8px;
   padding: 8px;
   align-items: center;
