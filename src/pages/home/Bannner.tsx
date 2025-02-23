@@ -12,11 +12,15 @@ export const Banner: FC<Props> = ({ topText, bottomText }) => {
   return (
     <DescriptionDiv>
       {topText.map((t) => (
-        <P3 $color="white">{t}</P3>
+        <P3 $color="white" key={t}>
+          {t}
+        </P3>
       ))}
       <Divider $color="white" $maxWidth={200} />
       {bottomText.map((t) => (
-        <P3 $color="white">{t}</P3>
+        <P3 $color="white" key={t}>
+          {t}
+        </P3>
       ))}
     </DescriptionDiv>
   );

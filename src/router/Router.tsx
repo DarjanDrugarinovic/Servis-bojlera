@@ -8,6 +8,7 @@ import { ServicesAndRepairs } from "pages/services-and-repairs/ServicesAndRepair
 import About from "pages/about/About";
 import { Contact } from "pages/contact/Contact";
 import { Warranty } from "pages/warranty/Warranty";
+import { Payment } from "pages/payment/Payment";
 
 const {
   regularBoilers,
@@ -17,6 +18,7 @@ const {
   about,
   contact,
   warranty,
+  payment,
 } = routes;
 
 export default function Router() {
@@ -29,6 +31,7 @@ export default function Router() {
       <Route path={about} element={<About />} />
       <Route path={contact} element={<Contact />} />
       <Route path={warranty} element={<Warranty />} />
+      <Route path={payment} element={<Payment />} />
       <Route path={"*"} element={<Home />} />
     </Routes>
   );

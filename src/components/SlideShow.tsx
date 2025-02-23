@@ -33,7 +33,7 @@ export const SlideShow: FC<Props> = ({ slides }) => {
             key={slide.id}
             src={slide.src}
             alt={slide.name}
-            isVisible={index === currentIndex}
+            $isVisible={index === currentIndex}
           />
         ))}
       </Wrapper>
@@ -57,11 +57,11 @@ const Wrapper = styled.div`
   align-items: flex-end;
 `;
 
-const SlideImage = styled.img<{ isVisible: boolean }>`
+const SlideImage = styled.img<{ $isVisible: boolean }>`
   position: absolute;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
   transition: opacity 1s ease-in-out;
 `;

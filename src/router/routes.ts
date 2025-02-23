@@ -1,5 +1,6 @@
 // viteConfigBase
-const base = "/Servis-bojlera";
+const base = "/Servis-bojlera"; // build and deploy on github pages
+// const base = ""; // build and deploy on UNLIMITED hosting
 
 export const routes = {
   home: `${base}/`,
@@ -10,4 +11,5 @@ export const routes = {
   warranty: `${base}/bojleri-pod-garancijom`,
   about: `${base}/o-nama`,
   contact: `${base}/kontakt`,
+  payment: `${base}/placanje`,
 };

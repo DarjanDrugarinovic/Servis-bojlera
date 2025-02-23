@@ -12,7 +12,7 @@ export const Section: FC<Props> = ({ text }) => {
     <SectionDiv>
       <P3>SERVIS BOJLERA BEOGRAD</P3>
       {text.map((t) => (
-        <P1>{t}</P1>
+        <P1 key={t}>{t}</P1>
       ))}
       <Divider $maxWidth={400} />
     </SectionDiv>
