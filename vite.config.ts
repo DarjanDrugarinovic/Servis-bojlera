@@ -26,5 +26,6 @@ export default defineConfig({
   server: {
     open: true,
   },
-  base: "/Servis-bojlera/",
+  base: "/Servis-bojlera/", // GITHUB
+  // base: "./", // UNLIMITED
 });

@@ -1,11 +1,12 @@
-import env from "config/env";
+import env, { LOCATIONS } from "config/env";
 import { DefaultTheme } from "styled-components";
 
 const { LOCATION } = env;
 
 const primary = (location: string) => {
-  if (location === "beograd") return "#da5b00";
-  if (location === "vracar") return "green";
+  if (location === LOCATIONS.BEOGRAD) return "#da5b00";
+  if (location === LOCATIONS.VRACAR) return "green";
+  if (location === LOCATIONS.STARI_GRAD) return "red";
 
   return "#da5b00";
 };

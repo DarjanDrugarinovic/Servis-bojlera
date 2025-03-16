@@ -26,23 +26,35 @@ export const SlideShow: FC<Props> = ({ slides }) => {
   }, [slides]);
 
   return (
-    <SlideShowDiv>
-      <Wrapper>
-        {slides.map((slide, index) => (
-          <SlideImage
-            key={slide.id}
-            src={slide.src}
-            alt={slide.name}
-            $isVisible={index === currentIndex}
-          />
-        ))}
-      </Wrapper>
-      <P3>{slides[currentIndex]?.name}</P3>
-    </SlideShowDiv>
+    <>
+      <SlideShowDiv>
+        <SlideShowBorderDiv $border>
+          <Wrapper>
+            {slides.map((slide, index) => (
+              <SlideImage
+                key={slide.id}
+                src={slide.src}
+                alt={slide.name}
+                $isVisible={index === currentIndex}
+              />
+            ))}
+          </Wrapper>
+        </SlideShowBorderDiv>
+        <P3>{slides[currentIndex]?.name}</P3>
+      </SlideShowDiv>
+    </>
   );
 };
 
-const SlideShowDiv = styled.div`
+const SlideShowBorderDiv = styled.div<{ $border?: boolean }>`
+  width: 90%;
+  max-width: 400px;
+  align-self: center;
+  border: ${({ theme, $border }) =>
+    $border ? `${theme.colors.primary} 3.5px solid` : "none"};
+`;
+
+const SlideShowDiv = styled.div<{ $border?: boolean }>`
   color: ${({ theme }) => theme.colors.primary};
   display: flex;
   flex-direction: column;

@@ -22,6 +22,6 @@ export const P3 = styled(P)`
 `;
 
 export const P4 = styled(P)`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
 `;

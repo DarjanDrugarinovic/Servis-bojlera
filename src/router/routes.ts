@@ -1,6 +1,5 @@
-// viteConfigBase
-const base = "/Servis-bojlera"; // build and deploy on github pages
-// const base = ""; // build and deploy on UNLIMITED hosting
+const base = "/Servis-bojlera"; // GITHUB
+// const base = ""; // UNLIMITED
 
 export const routes = {
   home: `${base}/`,

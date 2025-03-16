@@ -11,7 +11,7 @@ import { services } from "data/services";
 import { routes } from "router/routes";
 import Transitions from "./Transitions";
 import { locations } from "data/locations";
-import { P1, P3 } from "components/Paragraphs";
+import { P1, P2, P3 } from "components/Paragraphs";
 import { teamMembers } from "data/team-members";
 import { Link } from "components/Link";
 import { NavLink } from "components/NavLink";
@@ -23,9 +23,7 @@ const Home = () => {
       <NavLink to={routes.serviceServices}>
         <Section text={["USLUGE SERVISA"]} />
       </NavLink>
-      <SlideShowDiv $border>
-        <SlideShow slides={deliveryServices} />
-      </SlideShowDiv>
+      <SlideShow slides={deliveryServices} />
       <Banner
         topText={["SERVIS BOJLERA BEOGRAD", "HITNE INTERVENCIJE"]}
         bottomText={["NOĆNE INTERVENCIJE", "DOLAZIMO ODMAH"]}
@@ -33,9 +31,7 @@ const Home = () => {
       <NavLink to={routes.regularBoilers}>
         <Section text={["MODELI BOJLERA"]} />
       </NavLink>
-      <SlideShowDiv $border>
-        <SlideShow slides={regular_boilers} />
-      </SlideShowDiv>
+      <SlideShow slides={regular_boilers} />
       <Banner
         topText={["BOJLERU IZUZETNO DUGO TREBA", "DA SE ZAGREJE"]}
         bottomText={["POZOVITE NAS I REŠIĆEMO VAM", "TAJ PROBLEM"]}
@@ -43,9 +39,7 @@ const Home = () => {
       <NavLink to={routes.flowBoilers}>
         <Section text={["UGRADNJA I SERVIS", "PROTOČNIH BOJLERA"]} />
       </NavLink>
-      <SlideShowDiv $border>
-        <SlideShow slides={flow_boilers} />
-      </SlideShowDiv>
+      <SlideShow slides={flow_boilers} />
       <Banner
         topText={["GORI VAM LAMPICA ALI", "VAM BOJLER NE GREJE"]}
         bottomText={["POZOVITE NAS I REŠIĆEMO VAM", "TAJ PROBLEM"]}
@@ -53,10 +47,12 @@ const Home = () => {
       <Section text={["SERVIS I POPRAVKA", "BOJLERA"]} />
       <ServicesDiv>
         {services.map(({ id, name }) => (
-          <ServiceDiv key={id}>
-            <NavLink to={routes.servicesAndRepairs}>{name}</NavLink>
-            <div>🛠️</div>
-          </ServiceDiv>
+          <NavLink to={routes.servicesAndRepairs} key={id}>
+            <ServiceDiv>
+              {name}
+              <div>🛠️</div>
+            </ServiceDiv>
+          </NavLink>
         ))}
       </ServicesDiv>
       <Banner
@@ -86,7 +82,9 @@ const Home = () => {
       <TeamMembersDiv>
         {teamMembers.map(({ name, role, src }) => (
           <TeamMemberDiv key={name}>
-            <img src={src} alt={role} width="100%" />
+            <TeamMemberImageBorder>
+              <img src={src} alt={role} width="100%" />
+            </TeamMemberImageBorder>
             <P3>{name}</P3>
             <P3>{role}</P3>
           </TeamMemberDiv>
@@ -100,8 +98,8 @@ const Home = () => {
       <Link href="tel:0601881020">
         <P1>060/188-10-20</P1>
       </Link>
-      <P1>HITNE INTERVENCIJE</P1>
-      <P1>00-24</P1>
+      <P2>HITNE INTERVENCIJE</P2>
+      <P3>00-24</P3>
       <Banner
         topText={["NA CREVU BOJLERA VAM", "CURI ILI KAPLJE VODA"]}
         bottomText={["POZOVITE NAS I REŠIĆEMO VAM", "TAJ PROBLEM"]}
@@ -115,13 +113,16 @@ const Home = () => {
 
 export default Home;
 
+const TeamMemberImageBorder = styled.div`
+  border: 3.5px solid ${({ theme }) => theme.colors.primary};
+`;
+
 const TeamMemberDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
   max-width: 400px;
   align-items: center;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
   padding: 10px;
 `;
 
@@ -132,23 +133,15 @@ const TeamMembersDiv = styled.div`
   gap: 20px;
 `;
 
-const ServiceDiv = styled.div`
+const ServiceDiv = styled.h2`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: black;
 `;
 
 const ServicesDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const SlideShowDiv = styled.div<{ $border?: boolean }>`
-  width: 90%;
-  max-width: 400px;
-  align-self: center;
-  border: ${({ theme, $border }) =>
-    $border ? `${theme.colors.primary} 2px solid` : "none"};
+  gap: 20px;
 `;

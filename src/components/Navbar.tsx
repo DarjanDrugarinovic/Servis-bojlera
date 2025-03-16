@@ -55,13 +55,15 @@ const NavbarContentDiv = styled.div`
   justify-content: space-between;
 `;
 
-const NavbarPlaceholder = styled.div`
-  height: 67px;
-  position: relative;
-`;
-
 const StyledNavLink = styled(NavLink)`
   color: white;
+`;
+
+const navbarHeight = 67;
+
+const NavbarPlaceholder = styled.div`
+  height: ${navbarHeight}px;
+  position: relative;
 `;
 
 const NavbarDiv = styled.div`
@@ -70,6 +72,7 @@ const NavbarDiv = styled.div`
   right: 0;
   left: 0;
   z-index: 2147483647;
+  height: ${navbarHeight}px;
 
   background-color: ${({ theme }) => theme.colors.primary};
 `;
