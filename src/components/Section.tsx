@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { P1, P3, P4 } from "./Paragraphs";
+import { P1, P4 } from "./Paragraphs";
 import { Divider } from "./Divider";
 import { FC } from "react";
 
