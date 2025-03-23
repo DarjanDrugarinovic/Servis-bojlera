@@ -8,7 +8,7 @@ import styled from "styled-components";
 export const RegularBoilers = () => {
   return (
     <StyledLayout>
-      <Section text={["MODELI BOJLERA"]} />
+      <Section text={["MARKE BOJLERA"]} />
       <RegularBoilersDiv>
         {regular_boilers.map(({ id, name, src, description }, index) => (
           <RegularBoilerDiv key={id}>

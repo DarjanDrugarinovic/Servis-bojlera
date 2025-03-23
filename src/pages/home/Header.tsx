@@ -1,34 +1,33 @@
 import { Link } from "components/Link";
-import { P1, P2, P3 } from "components/Paragraphs";
+import { P3 } from "components/Paragraphs";
 import styled from "styled-components";
-import env, { LOCATIONS } from "config/env";
-
-const { LOCATION } = env;
-
-const locationName = (location: string) => {
-  if (location === LOCATIONS.BEOGRAD) return "BEOGRAD";
-  if (location === LOCATIONS.VRACAR) return "VRAČAR";
-  if (location === LOCATIONS.STARI_GRAD) return "STARI GRAD";
-};
+import { PLACES } from "config/contstants";
+import { PHONES } from "config/contstants";
+import { location } from "config/env";
 
 export const Header = () => {
   return (
     <HeaderDiv>
-      <H1>{locationName(LOCATION)}</H1>
+      <H1>{PLACES[location]}</H1>
       <Hr />
       <br />
       <Link href="tel:0601881020">
-        <P1 $color="white">060/188-10-20</P1>
+        <P36 $color="white">{PHONES[location]}</P36>
       </Link>
       <br />
       <P3 $color="white">PROFESIONALNO, POVOLJNO I PEDANTNO</P3>
       <br />
-      <P2 $color="white">HITNE INTERVENCIJE</P2>
+      <P3 $color="white">HITNE INTERVENCIJE</P3>
       <br />
-      <P3 $color="white">00-24</P3>
+      <P36 $color="white">00-24</P36>
     </HeaderDiv>
   );
 };
+
+export const P36 = styled.p<{ $color: string }>`
+  font-size: 36px;
+  color: ${({ $color }) => $color};
+`;
 
 const HeaderDiv = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};

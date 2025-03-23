@@ -2,6 +2,8 @@ import { Layout } from "components/Layout";
 import { Link } from "components/Link";
 import { P2, P3 } from "components/Paragraphs";
 import { Section } from "components/Section";
+import { PHONES } from "config/contstants";
+import { location } from "config/env";
 import styled from "styled-components";
 
 export const Contact = () => {
@@ -17,7 +19,7 @@ export const Contact = () => {
           <InformationDiv>
             <P2>Telefon</P2>
             <Link href="tel:0601881020">
-              <P3>060/188-10-20</P3>
+              <P3>{PHONES[location]}</P3>
             </Link>
           </InformationDiv>
           <InformationDiv>

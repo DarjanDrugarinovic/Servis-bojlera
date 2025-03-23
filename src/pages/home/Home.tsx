@@ -11,10 +11,12 @@ import { services } from "data/services";
 import { routes } from "router/routes";
 import Transitions from "./Transitions";
 import { locations } from "data/locations";
-import { P1, P2, P3 } from "components/Paragraphs";
+import { P2, P3 } from "components/Paragraphs";
 import { teamMembers } from "data/team-members";
 import { Link } from "components/Link";
 import { NavLink } from "components/NavLink";
+import { PHONES } from "config/contstants";
+import { location } from "config/env";
 
 const Home = () => {
   return (
@@ -29,7 +31,7 @@ const Home = () => {
         bottomText={["NOĆNE INTERVENCIJE", "DOLAZIMO ODMAH"]}
       />
       <NavLink to={routes.regularBoilers}>
-        <Section text={["MODELI BOJLERA"]} />
+        <Section text={["MARKE BOJLERA"]} />
       </NavLink>
       <SlideShow slides={regular_boilers} />
       <Banner
@@ -47,7 +49,7 @@ const Home = () => {
       <Section text={["SERVIS I POPRAVKA", "BOJLERA"]} />
       <ServicesDiv>
         {services.map(({ id, name }) => (
-          <NavLink to={routes.servicesAndRepairs} key={id}>
+          <NavLink to={`${routes.servicesAndRepairs}?usluga=${name}`} key={id}>
             <ServiceDiv>
               {name}
               <div>🛠️</div>
@@ -85,7 +87,7 @@ const Home = () => {
             <TeamMemberImageBorder>
               <img src={src} alt={role} width="100%" />
             </TeamMemberImageBorder>
-            <P3>{name}</P3>
+            <P2>{name}</P2>
             <P3>{role}</P3>
           </TeamMemberDiv>
         ))}
@@ -95,23 +97,37 @@ const Home = () => {
         bottomText={["POZOVITE NAS I REŠIĆEMO VAM", "TAJ PROBLEM"]}
       />
       <Section text={["CALL CENTAR"]} />
-      <Link href="tel:0601881020">
-        <P1>060/188-10-20</P1>
-      </Link>
-      <P2>HITNE INTERVENCIJE</P2>
-      <P3>00-24</P3>
+      <CallCenterDiv>
+        <Link href="tel:0601881020">
+          <P36>{PHONES[location]}</P36>
+        </Link>
+        <P2>HITNE INTERVENCIJE</P2>
+        <P36>00-24</P36>
+      </CallCenterDiv>
       <Banner
         topText={["NA CREVU BOJLERA VAM", "CURI ILI KAPLJE VODA"]}
         bottomText={["POZOVITE NAS I REŠIĆEMO VAM", "TAJ PROBLEM"]}
       />
       <NavLink to={routes.warranty}>
-        <P1>BOJLERI POD GARACIJOM</P1>
+        <P2>BOJLERI POD GARACIJOM</P2>
       </NavLink>
     </Layout>
   );
 };
 
 export default Home;
+
+const CallCenterDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
+
+export const P36 = styled.p`
+  font-size: 36px;
+  color: ${({ theme }) => theme.colors.primary};
+`;
 
 const TeamMemberImageBorder = styled.div`
   border: 3.5px solid ${({ theme }) => theme.colors.primary};
@@ -137,6 +153,8 @@ const ServiceDiv = styled.h2`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 24px;
+  font-weight: 400;
 `;
 
 const ServicesDiv = styled.div`

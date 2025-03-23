@@ -1,11 +1,13 @@
 const env = import.meta.env;
 
-export default {
-  LOCATION: env.VITE_LOCATION,
+type locationType = "BEOGRAD" | "VRACAR" | "STARI_GRAD";
+
+const getLocation = (): locationType => {
+  if (env.VITE_LOCATION === "vracar") return "VRACAR";
+  if (env.VITE_LOCATION === "stari-grad") return "STARI_GRAD";
+
+  return "BEOGRAD";
 };
 
-export const LOCATIONS = {
-  BEOGRAD: "beograd",
-  VRACAR: "vracar",
-  STARI_GRAD: "stari-grad",
-};
+export const location = getLocation();
+export type LocationMap = Record<locationType, string>;

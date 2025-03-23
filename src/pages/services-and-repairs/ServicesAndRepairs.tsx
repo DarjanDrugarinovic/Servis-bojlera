@@ -3,41 +3,43 @@ import { Layout } from "components/Layout";
 import { P2, P3 } from "components/Paragraphs";
 import { Section } from "components/Section";
 import { services } from "data/services";
+import { useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
 export const ServicesAndRepairs = () => {
+  const [searchParams] = useSearchParams();
+  console.log(searchParams.get("usluga"));
+  const service = useMemo(() => {
+    return services.find(
+      (service) => service.name === searchParams.get("usluga")
+    );
+  }, [searchParams]);
+
   return (
     <StyledLayout>
       <Section text={["SERVIS I POPRAVKA", "BOJLERA"]} />
       <ServicesAndRepairsDiv>
-        {services.map(({ id, name, src, description }, index) => (
-          <RegularBoilerDiv key={id}>
-            <P2>{name}</P2>
-            <Divider />
+        {service && (
+          <RegularBoilerDiv>
+            <P2>{service.name}</P2>
             <iframe
               width="100%"
               height="315"
-              src={src}
+              src={service.src}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             ></iframe>
-            <DescriptionDiv>
-              <P3>{description}</P3>
-            </DescriptionDiv>
-            {index !== services.length - 1 ? <Divider /> : null}
+            <Divider />
+            <P3>{service.description}</P3>
           </RegularBoilerDiv>
-        ))}
+        )}
       </ServicesAndRepairsDiv>
     </StyledLayout>
   );
 };
-
-const DescriptionDiv = styled.div`
-  border: 3px solid ${({ theme }) => theme.colors.primary};
-  padding: 10px;
-`;
 
 const RegularBoilerDiv = styled.div`
   display: flex;
