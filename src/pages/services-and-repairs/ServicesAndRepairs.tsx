@@ -9,7 +9,6 @@ import styled from "styled-components";
 
 export const ServicesAndRepairs = () => {
   const [searchParams] = useSearchParams();
-  console.log(searchParams.get("usluga"));
   const service = useMemo(() => {
     return services.find(
       (service) => service.name === searchParams.get("usluga")
