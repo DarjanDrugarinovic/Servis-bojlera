@@ -18,5 +18,5 @@ export const PHONES: LocationMap = {
   BEOGRAD: "060/188-10-20",
   STARI_GRAD: "061/140-25-25",
   VRACAR: "061/200-58-25",
-  NOVI_BEOGRAD: "060/188-10-20",
+  NOVI_BEOGRAD: "061/311-20-73",
 };
